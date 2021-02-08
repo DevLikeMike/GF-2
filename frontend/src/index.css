@@ -94,7 +94,7 @@ nav ul li a {
   display: flex;
   align-items: center;
   color: #fff;
-  margin-right: 0.5rem;
+  margin-right: 1rem;
   font-size: 1rem;
 }
 
@@ -131,6 +131,7 @@ nav ul li a {
   background-color: #323435;
   border: 1px solid #858383;
   border-radius: 8px;
+  transform: translateX(-40%);
   overflow: hidden;
   padding: 0.3em 0;
 }
@@ -368,8 +369,8 @@ nav ul li a {
 
 .backBtn {
   position: absolute;
-  top: 3rem;
-  left: 10px;
+  top: 5rem;
+  left: 1rem;
   color: #333;
   font-size: 1.5em;
 }

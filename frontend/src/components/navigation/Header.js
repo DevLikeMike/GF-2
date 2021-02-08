@@ -5,14 +5,15 @@ import { Link } from "react-router-dom";
 // Component imports
 import NavItem from "./NavItem";
 import AdminDropdownMenu from "./AdminDropdownMenu";
-// Action
+import ProfileDropdownMenu from "./ProfileDropdownMenu";
+// Actions
 import { logout } from "../../actions/userActions";
 import { GAME_CREATE_RESET } from "../../constants/gameConstants";
 
 const Header = (props) => {
+  const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
-  const dispatch = useDispatch();
 
   const logoutHandler = () => {
     dispatch(logout());
@@ -31,9 +32,9 @@ const Header = (props) => {
       <ul className='nav-links'>
         {userInfo ? (
           <>
-            <li id='greeting' className='nav-item'>
-              Welcome <span id='greetingName'>{userInfo.name}</span>
-            </li>
+            <NavItem icon='fas fa-user-cog' text={`${userInfo.name}`}>
+              <ProfileDropdownMenu />
+            </NavItem>
             {userInfo.isAdmin && (
               <>
                 <NavItem icon='fas fa-user-cog' text='Admin'>
@@ -41,11 +42,9 @@ const Header = (props) => {
                 </NavItem>
               </>
             )}
-            <NavItem icon='fas fa-plus' location='newgame' text='New Review' />
             <li className='nav-item'>
-              <a onClick={logoutHandler} href='/'>
-                <i className='fas fa-sign-out-alt'></i>
-                <span>Logout</span>
+              <a href='/' onClick={logoutHandler}>
+                <i className='fas fa-sign-out-alt'></i>Sign Out
               </a>
             </li>
           </>

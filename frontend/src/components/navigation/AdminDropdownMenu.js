@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const AdminDropdownMenu = () => {
   const DropdownItem = (props) => {
     return (
-      <Link to={`/${props.location}`} class='menu-item'>
+      <Link to={`/admin/${props.location}`} class='menu-item'>
         <span className='icon-button'>
           <i className='fas fa-user-cog'></i>
         </span>
