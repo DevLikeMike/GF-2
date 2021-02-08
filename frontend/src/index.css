@@ -55,7 +55,6 @@ nav {
   overflow: hidden;
   display: flex;
   justify-content: space-between;
-  justify-content: flex-end;
   align-items: center;
   padding: 0.7rem 2rem;
   z-index: 1;
@@ -65,11 +64,8 @@ nav {
 }
 
 #nav-title {
-  font-size: 1.3rem;
-  font-weight: 700;
-  position: absolute;
-  top: 0.4rem;
-  left: 1rem;
+  font-size: 1.5rem;
+  font-weight: 800;
   color: #000;
 }
 
@@ -86,12 +82,83 @@ nav ul li a {
 
 #greeting {
   color: #fff;
-  font-weight: 600;
-  margin-right: 1.2rem;
+  margin-right: 1rem;
 }
 
-#greetingName::first-letter {
-  text-transform: uppercase;
+#greetingName {
+  text-transform: capitalize;
+}
+
+.nav-item {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
+
+.nav-item:hover {
+  color: #575757;
+}
+
+.nav-item a {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.nav-item a:hover {
+  color: #575757;
+}
+
+.nav-item span {
+  margin-left: 0.3rem;
+}
+
+.nav-item .dropbutton {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: absolute;
+  top: 3.3rem;
+  width: 200px;
+  background-color: #323435;
+  border: 1px solid #858383;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 0.3em 0;
+}
+
+.menu-item {
+  width: 100%;
+  border-radius: 8px;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  transition: background 500ms;
+  font-size: 1rem;
+}
+
+.nav-item .menu-item:hover {
+  background: #858383;
+  color: #fff;
+}
+
+.icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.3rem;
+  background-color: rgb(114, 112, 112);
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
 }
 
 /* Alert div styling */

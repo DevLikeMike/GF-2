@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DevLikeMike/GamerFacts.git"
+    "url": "git+https://github.com/DevLikeMike/GF-2.git"
   },
   "author": "Michael Hall",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DevLikeMike/GamerFacts/issues"
+    "url": "https://github.com/DevLikeMike/GF-2/issues"
   },
-  "homepage": "https://github.com/DevLikeMike/GamerFacts#readme",
+  "homepage": "https://github.com/DevLikeMike/GF-2#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
