@@ -17,6 +17,8 @@ import {
   gameCreateReducer,
   gameUpdateReducer,
   gameDeleteReducer,
+  gameFilterReducer,
+  gameListMyReducer,
 } from "./reducers/gameReducers";
 
 // Combine all reducers
@@ -34,6 +36,8 @@ const reducer = combineReducers({
   gameCreate: gameCreateReducer,
   gameUpdate: gameUpdateReducer,
   gameDelete: gameDeleteReducer,
+  gameFilter: gameFilterReducer,
+  gameListMy: gameListMyReducer,
 });
 
 // Get user info if it is in localStorage from a previous login

@@ -17,7 +17,14 @@ import {
   GAME_DELETE_SUCCESS,
   GAME_DELETE_FAIL,
   GAME_DETAILS_RESET,
+  GAMES_FILTER,
+  GAMES_CLEAR_FILTER,
+  GAME_LIST_MY_REQUEST,
+  GAME_LIST_MY_SUCCESS,
+  GAME_LIST_MY_FAIL,
+  GAME_LIST_MY_RESET,
 } from "../constants/gameConstants";
+import { useSelector } from "react-redux";
 
 export const gameListReducer = (state = { games: [] }, action) => {
   switch (action.type) {
@@ -88,6 +95,57 @@ export const gameUpdateReducer = (state = { game: {} }, action) => {
       return { loading: false, error: action.payload };
     case GAME_UPDATE_RESET:
       return {};
+    default:
+      return state;
+  }
+};
+
+export const gameListMyReducer = (state = { games: [] }, action) => {
+  switch (action.type) {
+    case GAME_LIST_MY_REQUEST:
+      return {
+        loading: true,
+      };
+    case GAME_LIST_MY_SUCCESS:
+      return {
+        loading: false,
+        games: action.payload,
+      };
+    case GAME_LIST_MY_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    case GAME_LIST_MY_RESET:
+      return {
+        games: [],
+      };
+    default:
+      return state;
+  }
+};
+
+export const gameFilterReducer = (state = { filtered: {} }, action) => (
+  getState
+) => {
+  const {
+    gameList: { games },
+  } = getState();
+
+  switch (action.type) {
+    case GAMES_FILTER:
+      return {
+        ...state,
+        filtered: games.filter((game) => {
+          const regex = new RegExp(`${action.payload}`, "gi");
+          return game.name.match(regex);
+        }),
+      };
+    case GAMES_CLEAR_FILTER:
+      return {
+        ...state,
+        filtered: null,
+      };
     default:
       return state;
   }

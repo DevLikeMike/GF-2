@@ -1,5 +1,7 @@
 import axios from "axios";
 import {
+  GAMES_CLEAR_FILTER,
+  GAMES_FILTER,
   GAME_CREATE_FAIL,
   GAME_CREATE_REQUEST,
   GAME_CREATE_SUCCESS,
@@ -10,6 +12,9 @@ import {
   GAME_DETAILS_REQUEST,
   GAME_DETAILS_SUCCESS,
   GAME_LIST_FAIL,
+  GAME_LIST_MY_FAIL,
+  GAME_LIST_MY_REQUEST,
+  GAME_LIST_MY_SUCCESS,
   GAME_LIST_REQUEST,
   GAME_LIST_SUCCESS,
   GAME_UPDATE_FAIL,
@@ -183,4 +188,50 @@ export const deleteGame = (id) => async (dispatch, getState) => {
           : error.message,
     });
   }
+};
+
+export const listMyGames = () => async (dispatch, getState) => {
+  try {
+    //Dispatch request
+    dispatch({
+      type: GAME_LIST_MY_REQUEST,
+    });
+
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    //Axios config
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    // Axios request
+    const { data } = await axios.get(`/api/games/mygames`, config);
+
+    dispatch({
+      type: GAME_LIST_MY_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: GAME_LIST_MY_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+// Filter Games
+export const filterGames = (text) => async (dispatch) => {
+  dispatch({ type: GAMES_FILTER, payload: text });
+};
+
+// Clear Filter
+export const clearFilter = () => async (dispatch) => {
+  dispatch({ type: GAMES_CLEAR_FILTER });
 };

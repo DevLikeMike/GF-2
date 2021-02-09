@@ -118,10 +118,19 @@ const deleteUsersGame = asyncHandler(async (req, res) => {
   }
 });
 
+// @description  Get logged in user's gamereviews
+// @route        GET /api/games/myreviews
+// @access       Private
+const getMyGames = asyncHandler(async (req, res) => {
+  const games = await Game.find({ user: req.user._id });
+  res.json(games);
+});
+
 export {
   getGames,
   getGameById,
   createNewReview,
   updateUsersGame,
   deleteUsersGame,
+  getMyGames,
 };

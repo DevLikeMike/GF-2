@@ -266,12 +266,17 @@ nav ul li a {
 }
 
 /* Games Styling */
+#games-container #searchForm .searchBar {
+  z-index: 0;
+}
+
 #searchForm {
   margin: 2rem auto 0 auto;
   width: 66%;
   height: 1rem;
   position: relative;
   cursor: pointer;
+  z-index: 0;
 }
 
 .searchBar:focus {
@@ -285,6 +290,7 @@ nav ul li a {
   padding: 4px;
   padding-left: 2rem;
   font-size: larger;
+  z-index: 0;
 }
 
 .searchBtn {
@@ -423,6 +429,77 @@ nav ul li a {
   width: 80%;
   margin-top: 0;
   line-height: 1.6rem;
+}
+
+/* Profile Page */
+.page-container {
+  height: 100vh;
+  width: 95%;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: 22% 78%;
+  grid-template-rows: 5vh 60vh;
+}
+
+.profile-page-header {
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.user-info-form {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  font-size: 1.3rem;
+  border-right: 1px solid black;
+  padding: 1rem;
+}
+
+.profile-form-group {
+  width: 100%;
+}
+
+.profile-form-group label {
+  display: block;
+  margin-top: 1rem;
+}
+
+.profile-form-group input {
+  width: 100%;
+  height: 1.6rem;
+  font-size: 1.1rem;
+  padding: 5px;
+  margin-top: 0.4rem;
+}
+
+.user-assets {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.user-assets table td,
+.user-assets table th {
+  padding: 0.4rem;
+  border-bottom: 1px solid #333;
+  text-align: start;
+  line-height: 1.5rem;
+}
+
+.user-assets table tr:nth-child(even) {
+  background-color: rgba(187, 187, 187, 0.337);
+}
+
+.user-assets i {
+  color: #4573e6;
 }
 
 @media only screen and (max-width: 1024px) {
