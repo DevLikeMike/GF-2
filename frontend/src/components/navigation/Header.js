@@ -50,8 +50,12 @@ const Header = (props) => {
           </>
         ) : (
           <>
-            <NavItem location={"login"} text={"Login"} />
-            <NavItem location={"register"} text={"Register"} />
+            <li className='nav-item'>
+              <Link to='/login'>Login</Link>
+            </li>
+            <li className='nav-item'>
+              <Link to='/register'>Register</Link>
+            </li>
           </>
         )}
       </ul>

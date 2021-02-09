@@ -18,12 +18,6 @@ const ProfileDropdownMenu = () => {
       <DropdownItem location='newgame' icon='fas fa-plus'>
         New Review
       </DropdownItem>
-      <DropdownItem location='myreviews' icon='fas fa-gamepad'>
-        My Reviews
-      </DropdownItem>
-      <DropdownItem location='mycomments' icon='far fa-comments'>
-        My Comments
-      </DropdownItem>
       <DropdownItem location='myprofile' icon='fas fa-user'>
         My Profile
       </DropdownItem>
