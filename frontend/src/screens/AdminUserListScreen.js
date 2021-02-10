@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteUser, getUserDetails, listUsers } from "../actions/userActions";
+import { deleteUser, listUsers } from "../actions/userActions";
+import Message from "../components/Message";
 
 const AdminUserListScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -10,16 +11,16 @@ const AdminUserListScreen = ({ history }) => {
   const { userInfo } = userLogin;
 
   const userDelete = useSelector((state) => state.userDelete);
-  const { success: successDelete } = userDelete;
+  const { success: successDelete, error: errorDelete } = userDelete;
 
   const userList = useSelector((state) => state.userList);
-  const { loading, error, users } = userList;
+  const { users, error: listError } = userList;
 
   useEffect(() => {
     if (!userInfo.isAdmin) {
       history.push("/");
     } else {
-      if (users && users.length == 0) {
+      if (users && users.length === 0) {
         dispatch(listUsers());
       }
     }
@@ -40,6 +41,8 @@ const AdminUserListScreen = ({ history }) => {
       </Link>
       <div className='admin-page-container'>
         <h1 className='profile-page-header'>Registered Users</h1>
+        {listError && <Message variant='danger'>{listError}</Message>}
+        {errorDelete && <Message variant='danger'>{errorDelete}</Message>}
         <table>
           <thead>
             <tr>
@@ -54,7 +57,7 @@ const AdminUserListScreen = ({ history }) => {
           <tbody>
             {users &&
               users.map((user) => (
-                <tr>
+                <tr key={user._id}>
                   <td>{user._id}</td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>

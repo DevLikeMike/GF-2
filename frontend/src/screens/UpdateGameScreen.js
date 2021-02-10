@@ -15,7 +15,7 @@ const UpdateGameScreen = ({ history, match }) => {
   const { game } = gameDetails;
 
   const gameUpdate = useSelector((state) => state.gameUpdate);
-  const { loading: loadingUpdate, success: successUpdate } = gameUpdate;
+  const { success: successUpdate } = gameUpdate;
 
   const [name, setName] = useState("");
   const [author, setAuthor] = useState("");
@@ -40,7 +40,7 @@ const UpdateGameScreen = ({ history, match }) => {
         setImage(game.image);
       }
     }
-  }, [dispatch, gameId, successUpdate, history, game]);
+  }, [dispatch, gameId, successUpdate, history, game, userInfo.name]);
 
   const submitHandler = (e) => {
     e.preventDefault();

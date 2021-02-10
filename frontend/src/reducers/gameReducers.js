@@ -24,7 +24,6 @@ import {
   GAME_LIST_MY_FAIL,
   GAME_LIST_MY_RESET,
 } from "../constants/gameConstants";
-import { useSelector } from "react-redux";
 
 export const gameListReducer = (state = { games: [] }, action) => {
   switch (action.type) {

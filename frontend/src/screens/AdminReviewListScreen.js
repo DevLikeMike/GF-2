@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { listGames, deleteGame } from "../actions/gameActions";
+import Message from "../components/Message";
+import Spinner from "../components/Spinner";
 
 const AdminUserListScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -10,11 +12,15 @@ const AdminUserListScreen = ({ history }) => {
   const { userInfo } = userLogin;
 
   const gameList = useSelector((state) => state.gameList);
-  const { games } = gameList;
+  const { loading, games, error } = gameList;
 
   useEffect(() => {
     if (!userInfo.isAdmin) {
       history.push("/");
+    } else {
+      if (games && games === []) {
+        dispatch(listGames());
+      }
     }
   }, [dispatch, history, userInfo, games]);
 
@@ -33,6 +39,8 @@ const AdminUserListScreen = ({ history }) => {
       </Link>
       <div className='admin-page-container'>
         <h1 className='profile-page-header'>Published Reviews</h1>
+        {loading && <Spinner />}
+        {error && <Message variant='danger'>{error}</Message>}
         <table>
           <thead>
             <tr>
@@ -48,7 +56,7 @@ const AdminUserListScreen = ({ history }) => {
           <tbody>
             {games &&
               games.map((game) => (
-                <tr>
+                <tr key={game._id}>
                   <td>{game._id}</td>
                   <td>{game.name}</td>
                   <td>{game.author}</td>

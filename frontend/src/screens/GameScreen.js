@@ -6,6 +6,7 @@ import Stars from "react-rating-stars-component";
 // Actions
 import { listGameDetails, deleteGame } from "../actions/gameActions";
 import { GAME_DETAILS_RESET } from "../constants/gameConstants";
+import Spinner from "../components/Spinner";
 
 const GameScreen = ({ match, history }) => {
   // Declare states
@@ -27,7 +28,7 @@ const GameScreen = ({ match, history }) => {
     } else {
       dispatch(listGameDetails(gameId));
     }
-  }, [match, gameId, dispatch, successDelete]);
+  }, [match, gameId, dispatch, successDelete, history]);
 
   // Delete Handler
   const deleteHandler = (id) => {
@@ -43,7 +44,7 @@ const GameScreen = ({ match, history }) => {
         <i class='fas fa-chevron-left'></i> Back
       </Link>
       {loading ? (
-        <h1>Loading</h1>
+        <Spinner />
       ) : (
         <>
           <h1 className='gameTitle text-center'>
