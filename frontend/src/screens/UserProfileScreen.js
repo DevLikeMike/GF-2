@@ -121,7 +121,7 @@ const UserProfileScreen = ({ history }) => {
                 games.map((game) => (
                   <tr>
                     <td>{game.name}</td>
-                    <td>{game.description.substring(0, 144)}</td>
+                    <td>{game.description.substring(0, 144)}...</td>
                     <td>{game.rating}/5</td>
                     <td>{game.date.substring(0, 10)}</td>
                     <td>

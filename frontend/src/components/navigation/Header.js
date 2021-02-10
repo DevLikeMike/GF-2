@@ -9,6 +9,7 @@ import ProfileDropdownMenu from "./ProfileDropdownMenu";
 // Actions
 import { logout } from "../../actions/userActions";
 import { GAME_CREATE_RESET } from "../../constants/gameConstants";
+import { USER_LIST_RESET } from "../../constants/userConstants";
 
 const Header = (props) => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const Header = (props) => {
   const logoutHandler = () => {
     dispatch(logout());
     dispatch({ type: GAME_CREATE_RESET });
+    dispatch({ type: USER_LIST_RESET });
   };
 
   return (
@@ -25,7 +27,10 @@ const Header = (props) => {
       <div id='logo-block'>
         <Link to={userInfo ? "/" : "/login"}>
           <h1 id='nav-title'>
-            <i className={props.icon} /> <span id='title-text'>GamerFacts</span>
+            <i className={props.icon} />{" "}
+            <span id='title-text'>
+              <span id='gamer'>Gamer</span>Facts
+            </span>
           </h1>
         </Link>
       </div>

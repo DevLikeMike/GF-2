@@ -46,8 +46,12 @@ a {
   font-size: smaller;
   border-radius: 10px;
   padding: 0.3rem;
-  background-color: #d64d3b;
   color: #fff;
+  background-color: #005baf;
+}
+
+.danger {
+  background-color: #d64d3b;
 }
 
 /* Navbar */
@@ -60,13 +64,22 @@ nav {
   z-index: 1;
   width: 100%;
   opacity: 0.9;
-  background: rgba(222, 166, 2, 1) 90%;
+  background: rgb(103, 103, 103);
+  background: linear-gradient(
+    48deg,
+    rgba(103, 103, 103, 1) 0%,
+    rgba(45, 45, 45, 1) 100%
+  );
 }
 
 #nav-title {
   font-size: 1.5rem;
   font-weight: 800;
-  color: #000;
+  color: #ffffff;
+}
+
+#gamer {
+  color: #ffa600;
 }
 
 nav ul {
@@ -95,11 +108,11 @@ nav ul li a {
   align-items: center;
   color: #fff;
   margin-right: 1rem;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .nav-item:hover {
-  color: #575757;
+  color: #ffa600;
 }
 
 .nav-item a {
@@ -110,7 +123,7 @@ nav ul li a {
 }
 
 .nav-item a:hover {
-  color: #575757;
+  color: #ffa600;
 }
 
 .nav-item span {
@@ -127,7 +140,7 @@ nav ul li a {
   flex-direction: column;
   position: absolute;
   top: 3.3rem;
-  width: 200px;
+  width: 180px;
   background-color: #323435;
   border: 1px solid #858383;
   border-radius: 8px;
@@ -143,7 +156,7 @@ nav ul li a {
   display: flex;
   align-items: center;
   transition: background 500ms;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .nav-item .menu-item:hover {
@@ -158,8 +171,8 @@ nav ul li a {
   margin-right: 0.3rem;
   background-color: rgb(114, 112, 112);
   border-radius: 50%;
-  height: 2rem;
-  width: 2rem;
+  height: 1.8rem;
+  width: 1.8rem;
 }
 
 /* Alert div styling */
@@ -341,8 +354,9 @@ nav ul li a {
 
 .card {
   box-shadow: 0 5px 10px;
-  line-height: 1.6rem;
+  line-height: 1.4rem;
   padding-bottom: 0.4rem;
+  font-size: 0.9rem;
 }
 
 .card h3,
@@ -351,7 +365,7 @@ nav ul li a {
 }
 
 .card p {
-  padding: 0.2rem 0;
+  padding: 0.2rem;
 }
 
 .card img {
@@ -364,7 +378,7 @@ nav ul li a {
 .authGI {
   color: #333;
   font-size: 0.8rem;
-  margin-left: 0.5rem;
+  margin: 0 0 0.2rem 0.9rem;
 }
 
 /* Game Page Styling */
@@ -442,6 +456,7 @@ nav ul li a {
 }
 
 .profile-page-header {
+  margin-bottom: 1rem;
   text-align: center;
   grid-column-start: 1;
   grid-column-end: 3;
@@ -487,19 +502,44 @@ nav ul li a {
 }
 
 .user-assets table td,
-.user-assets table th {
+.user-assets table th,
+.admin-page-container table td,
+.admin-page-container table th {
   padding: 0.4rem;
   border-bottom: 1px solid #333;
   text-align: start;
   line-height: 1.5rem;
 }
 
-.user-assets table tr:nth-child(even) {
+.user-assets table tr:nth-child(even),
+.admin-page-container table tr:nth-child(even) {
   background-color: rgba(187, 187, 187, 0.337);
 }
 
 .user-assets i {
   color: #4573e6;
+}
+
+.green {
+  color: #76e649;
+}
+
+.red {
+  color: #bf1212;
+}
+
+.delete {
+  color: #ff4430;
+  cursor: pointer;
+}
+
+.admin-page-container {
+  height: 100vh;
+  width: 80%;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
 }
 
 @media only screen and (max-width: 1024px) {

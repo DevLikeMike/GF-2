@@ -10,6 +10,8 @@ import RegisterScreen from "./screens/RegisterScreen";
 import CreateGameScreen from "./screens/CreateGameScreen";
 import UpdateGameScreen from "./screens/UpdateGameScreen";
 import UserProfileScreen from "./screens/UserProfileScreen";
+import AdminReviewListScreen from "./screens/AdminReviewListScreen";
+import AdminUserListScreen from "./screens/AdminUserListScreen";
 import GameScreen from "./screens/GameScreen";
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
       <Route path='/games/:id/edit' component={UpdateGameScreen} />
       <Route path='/games' component={HomeScreen} exact />
       <Route path='/myprofile' component={UserProfileScreen} />
+      <Route path='/admin/reviews' component={AdminReviewListScreen} />
+      <Route path='/admin/users' component={AdminUserListScreen} />
       <Route path='/' component={HomeScreen} exact />
       <Footer />
     </Router>
