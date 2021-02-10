@@ -97,6 +97,9 @@ dist
 # FuseBox cache
 .fusebox/
 
+# production 
+/frontend/build
+
 # DynamoDB Local files
 .dynamodb/
 
